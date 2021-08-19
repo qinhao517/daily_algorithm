@@ -29,7 +29,7 @@
 
 * 定义两个指针，cur和pre指针
 * 具体的步骤，可以参考我画的图
-* 图解![](/Users/apple/Downloads/WechatIMG658.png)
+* 图解:../images/反转链表.png
 
 #### java代码示例
 
