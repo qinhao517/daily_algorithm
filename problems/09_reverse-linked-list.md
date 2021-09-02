@@ -25,7 +25,7 @@
 
 
 
-## 思路:利用指针进行节点转换
+## 思路1:利用指针进行节点转换
 
 * 定义两个指针，cur和pre指针
 * 具体的步骤，可以参考我画的图
@@ -62,6 +62,46 @@ class Solution {
         }
 
         return pre;
+    }
+}
+```
+
+## 思路2:使用递归方式解题
+
+* 搞清楚递归的终止条件
+* 拆分子问题
+* 归并问题
+* 图解: ../images/递归反转链表.png
+#### java代码示例
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        //使用递归方式解题
+
+        //1.递归的终止条件
+        if(head == null || head.next == null){
+            return head;
+        }
+
+        //2.拆分子问题
+        ListNode p = reverseList(head.next);
+
+        //3.归并问题
+        head.next.next = head;
+        head.next = null;
+
+        return p;
     }
 }
 ```
